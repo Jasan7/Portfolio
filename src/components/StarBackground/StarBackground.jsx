@@ -8,25 +8,46 @@ const StarBackground = () => {
     const ctx = canvas.getContext("2d");
 
     let stars = [];
-    const numStars = 250; 
+    const numStars = 250;
     const colors = ["#ffffff", "#ffe9c4", "#d4fbff"];
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
+    let canvasWidth = window.innerWidth;
+    let canvasHeight = window.innerHeight;
+
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * canvasWidth,
+        y: Math.random() * canvasHeight,
         radius: Math.random() * 1.5,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speed: Math.random() * 0.05 + 0.02, 
+        speed: Math.random() * 0.05 + 0.02,
       });
     }
+
+    const resize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+
+      const scaleX = newWidth / canvasWidth;
+      const scaleY = newHeight / canvasHeight;
+
+      stars = stars.map((star) => ({
+        ...star,
+        x: star.x * scaleX,
+        y: star.y * scaleY,
+      }));
+
+      canvasWidth = newWidth;
+      canvasHeight = newHeight;
+
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+    };
+
+    window.addEventListener("resize", resize);
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
