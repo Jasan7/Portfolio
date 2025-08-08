@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <main style={{ minHeight: "80vh", padding: "20px 40px" }}>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

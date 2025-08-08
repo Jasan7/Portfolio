@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import NavButton from "../sharedComponent/NavButton/NavButton";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>js.</div>
       <nav>
         <ul className={styles.navlinks}>
           <li>
-            <Link to="/">Home</Link>
+            <NavButton to="/">Home</NavButton>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
+            <NavButton to="/projects">Projects</NavButton>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavButton to="/about">About</NavButton>
           </li>
           <li>
-            <Link to="/resume">Resume</Link>
+            <NavButton to="/resume">Resume</NavButton>
           </li>
         </ul>
       </nav>

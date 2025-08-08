@@ -1,0 +1,77 @@
+.navButton {
+  position: relative;
+  display: inline-block;
+  padding: 15px 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 0;
+  transition: box-shadow 0.3s ease;
+}
+
+.navButton::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 10px;
+  background: conic-gradient(
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet,
+    red
+  );
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navButton::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 6px;
+  background: transparent; 
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.label {
+  position: relative;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.navButton:hover::before {
+  opacity: 1;
+  animation: spinBorder 3s linear infinite;
+}
+
+.navButton:hover::after {
+  background: black;
+}
+
+.navButton:hover {
+  box-shadow: -4px 4px 8px rgba(255, 255, 255, 0.2),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes spinBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
