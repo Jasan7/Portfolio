@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navlinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
