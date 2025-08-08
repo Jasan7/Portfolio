@@ -1,0 +1,36 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 80vh;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.intro {
+  max-width: 700px;
+}
+
+.greeting {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.greeting span {
+  color: #007bff;
+}
+
+.typedText {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
