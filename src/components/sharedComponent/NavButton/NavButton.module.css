@@ -8,7 +8,7 @@
   border-radius: 8px;
   overflow: hidden;
   z-index: 0;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.25s ease, transform 0.12s ease;
 }
 
 .navButton::before {
@@ -42,7 +42,7 @@
   right: 2px;
   bottom: 2px;
   border-radius: 6px;
-  background: transparent; 
+  background: transparent;
   z-index: 1;
   transition: background 0.3s ease;
 }
@@ -53,18 +53,52 @@
   z-index: 2;
 }
 
-.navButton:hover::before {
-  opacity: 1;
-  animation: spinBorder 3s linear infinite;
+@media (hover: hover) and (pointer: fine) {
+  .navButton:hover::before {
+    opacity: 1;
+    animation: spinBorder 3s linear infinite;
+  }
+
+  .navButton:hover::after {
+    background: #0c0d23ff;
+  }
+
+  .navButton:hover {
+    box-shadow: -4px 4px 8px rgba(255, 255, 255, 0.12),
+      4px 4px 8px rgba(255, 255, 255, 0.12);
+  }
+
+  .navButton:focus-visible {
+    outline: 2px solid rgba(0, 191, 255, 0.35);
+    outline-offset: 3px;
+  }
 }
 
-.navButton:hover::after {
-  background: #0c0d23ff;
+@media (hover: none) {
+  .navButton:active {
+    transform: translateY(1px);
+    opacity: 0.98;
+  }
+  .navButton:active::after {
+    background: rgba(12, 13, 35, 0.35);
+  }
 }
 
-.navButton:hover {
-  box-shadow: -4px 4px 8px rgba(255, 255, 255, 0.2),
-    4px 4px 8px rgba(255, 255, 255, 0.2);
+body.no-hover .navButton::before,
+body.no-hover .navButton:hover::before {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+body.no-hover .navButton::after,
+body.no-hover .navButton:hover::after {
+  background: transparent !important;
+}
+
+body.no-hover .navButton,
+body.no-hover .navButton:hover {
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 @keyframes spinBorder {

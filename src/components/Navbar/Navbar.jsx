@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import NavButton from "../sharedComponent/NavButton/NavButton";
 import styles from "./Navbar.module.css";
-import { FaHome, FaProjectDiagram, FaUser, FaFileAlt } from "react-icons/fa";
+import { FaHome, FaProjectDiagram, FaUser, FaFileAlt, FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +18,8 @@ function Navbar() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>js</div>
-      <nav>
+
+      <nav className={styles.desktopNav}>
         <ul className={styles.navlinks}>
           <li>
             <NavButton to="/">
@@ -41,6 +43,28 @@ function Navbar() {
           </li>
         </ul>
       </nav>
+
+      <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <NavButton to="/" onClick={() => {setMenuOpen(false) 
+            console.log("pressed")}}>
+            <FaHome className={styles.icon} /> Home
+          </NavButton>
+          <NavButton to="/projects" onClick={() => setMenuOpen(false)}>
+            <FaProjectDiagram className={styles.icon} /> Projects
+          </NavButton>
+          <NavButton to="/about" onClick={() => setMenuOpen(false)}>
+            <FaUser className={styles.icon} /> About
+          </NavButton>
+          <NavButton to="/resume" onClick={() => setMenuOpen(false)}>
+            <FaFileAlt className={styles.icon} /> Resume
+          </NavButton>
+        </div>
+      )}
     </header>
   );
 }

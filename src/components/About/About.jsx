@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./About.module.css";
 
 const About = () => {
@@ -42,7 +41,7 @@ const About = () => {
           <h3>🎓 Education</h3>
           <p>
             <strong>B.Tech in Computer Science Engineering</strong> Guru Gobind
-            Singh Indraprastha University (2018 – 2022) CGPA: 8.2
+            Singh Indraprastha University (2018 - 2022) CGPA: 8.2
           </p>
         </div>
 
