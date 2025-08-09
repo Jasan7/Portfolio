@@ -1,8 +1,27 @@
 .footer {
-  text-align: center;
-  padding: 2px;
-  background-color: #fff;
-  font-size: 0.9rem;
-  background-color: #0a0a0a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 40px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.socialLinks {
+  display: flex;
+  gap: 25px;
+}
+
+.icon {
+  font-size: 1.4rem;
+  color: #00bfff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover {
+  color: #a0efff;
+  transform: translateY(-2px);
+}

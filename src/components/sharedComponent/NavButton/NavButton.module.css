@@ -59,7 +59,7 @@
 }
 
 .navButton:hover::after {
-  background: black;
+  background: #0c0d23ff;
 }
 
 .navButton:hover {

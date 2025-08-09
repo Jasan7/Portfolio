@@ -1,14 +1,23 @@
 import { ReactTyped } from "react-typed";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import styles from "./Home.module.css";
 
 const Home = () => {
+  const { ref: aboutRef, inView: aboutVisible } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   return (
     <>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.intro}>
           <h1 className={styles.greeting}>
-            Hi, I'm <span>Jasandeep Singh</span> 👋
+            Hi, I'm <span>Jasandeep Singh</span>{" "}
+            <span className={styles.wave}>👋</span>
           </h1>
 
           <ReactTyped
@@ -25,17 +34,63 @@ const Home = () => {
           />
         </div>
       </section>
+      <motion.section
+        ref={aboutRef}
+        className={styles.moreAboutContainer}
+        initial={{ opacity: 0, y: 50 }}
+        animate={aboutVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {/* More About Me */}
+        <div className={styles.moreAbout}>
+          <h2 className={styles.subHeading}>More About Me</h2>
+          <div className={styles.aboutPoints}>
+            {[
+              "I specialize in building scalable, responsive, and dynamic web applications.",
+              "I work with modern technologies like React, HTML, CSS, JavaScript and also have knowledge of framework like Angular.js.",
+              "Apart from Frontend i'm also familiar with the concetps of Backend tech. stack as well like Node.js, Express.js and Java",
+            ].map((point, i) => {
+              const highlighted = point.replace(
+                /\b(React|JavaScript|Node\.js|HTML|CSS|Express.js|web applications|MongoDB|Java|Angular.js|UI\/UX)\b/g,
+                `<span class="${styles.techHighlight}">$1</span>`
+              );
 
-      {/* More About Me Section */}
-      <section className={styles.moreAbout}>
-        <h2 className={styles.subHeading}>More About Me</h2>
-        <div className={styles.aboutPoints}>
-          <p>I specialize in building scalable, responsive, and dynamic web applications.</p>
-          <p>I work with modern technologies like React, Node.js, Express, and MongoDB.</p>
-          <p>I'm passionate about crafting clean code and intuitive UI/UX.</p>
-          <p>I focus on delivering performance-driven solutions.</p>
+              return (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={aboutVisible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: i * 0.2, duration: 0.5 }}
+                  dangerouslySetInnerHTML={{ __html: highlighted }}
+                />
+              );
+            })}
+          </div>
         </div>
-      </section>
+
+        {/* Contact Links */}
+        <div className={styles.contactSection}>
+          <h2 className={styles.subHeading}>Find Me Online</h2>
+          <div className={styles.contactLinks}>
+            <a
+              href="https://github.com/Jasan7"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.contactIcon}
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jasandeep-singh/"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.contactIcon}
+            >
+              <FaLinkedin />
+            </a>
+          </div>
+        </div>
+      </motion.section>
     </>
   );
 };

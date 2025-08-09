@@ -1,7 +1,7 @@
 .hero {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   text-align: center;
 }
 
@@ -15,35 +15,99 @@
 }
 
 .greeting span {
-  color: #007bff;
+  color: #7ee1ff;
 }
 
 .typedText {
   display: block;
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #007bff;
+  color: #228dff;
   font-weight: 700;
 }
 
 .moreAbout {
-  padding: 60px 20px;
+  padding: 50px 20px;
   max-width: 800px;
-  margin: auto;
+  margin-left: 50px;
+  text-align: left;
 }
 
 .subHeading {
   margin-bottom: 20px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00bfff, #228dff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .aboutPoints p {
-  margin: 8px 0;
-  font-size: 1rem;
+  margin: 10px 0;
+  font-size: 1.55rem;
   color: #ccc;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.techHighlight {
+  color: #00bfff;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.contactSection {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.contactIcon {
+  font-size: 2rem;
+  color: #00bfff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contactIcon:hover {
+  color: #a0efff;
+  transform: translateY(-3px);
+}
+
+.wave {
+  display: inline-block;
+  transform-origin: 70% 90%;
+  animation: waveAnim 2.5s infinite ease-in-out;
+}
+
+@keyframes waveAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -52,5 +116,8 @@
   }
   .greeting {
     font-size: 2.3rem;
+  }
+  .moreAbout {
+    margin-left: 0px;
   }
 }

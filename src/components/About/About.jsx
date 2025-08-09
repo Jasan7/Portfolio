@@ -46,27 +46,6 @@ const About = () => {
           </p>
         </div>
 
-        {/* Experience */}
-        <div className={styles.section}>
-          <h3>💼 Experience</h3>
-          <ul>
-            <li>
-              Developed secure, scalable web applications with features like
-              user authentication, state management, and performance
-              optimizations.
-            </li>
-            <li>
-              Built and maintained reusable UI components, integrated REST APIs,
-              and implemented server-side pagination for large datasets.
-            </li>
-            <li>
-              Completed intensive training in modern web development, focusing
-              on React, Node.js, and best practices for building responsive,
-              accessible applications.
-            </li>
-          </ul>
-        </div>
-
         {/* Tech Stack */}
         <div className={styles.section}>
           <h3>🛠 Tech Stack</h3>

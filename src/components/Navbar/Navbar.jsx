@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NavButton from "../sharedComponent/NavButton/NavButton";
 import styles from "./Navbar.module.css";
+import { FaHome, FaProjectDiagram, FaUser, FaFileAlt } from "react-icons/fa";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,20 +16,28 @@ function Navbar() {
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>js.</div>
+      <div className={styles.logo}>js</div>
       <nav>
         <ul className={styles.navlinks}>
           <li>
-            <NavButton to="/">Home</NavButton>
+            <NavButton to="/">
+              <FaHome className={styles.icon} /> Home
+            </NavButton>
           </li>
           <li>
-            <NavButton to="/projects">Projects</NavButton>
+            <NavButton to="/projects">
+              <FaProjectDiagram className={styles.icon} /> Projects
+            </NavButton>
           </li>
           <li>
-            <NavButton to="/about">About</NavButton>
+            <NavButton to="/about">
+              <FaUser className={styles.icon} /> About
+            </NavButton>
           </li>
           <li>
-            <NavButton to="/resume">Resume</NavButton>
+            <NavButton to="/resume">
+              <FaFileAlt className={styles.icon} /> Resume
+            </NavButton>
           </li>
         </ul>
       </nav>

@@ -52,7 +52,7 @@ const StarBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#111111ff";
+      ctx.fillStyle = "#0a0b1dff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {

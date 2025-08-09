@@ -25,11 +25,12 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
-  color: white;
+  color: #7ee1ff;
   flex-shrink: 0;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 
 .navlinks {
@@ -42,6 +43,13 @@
 
 .navlinks li {
   display: flex;
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 1.1rem;
+  position: relative;
+  top: 2px;
 }
 
 @media (max-width: 768px) {
