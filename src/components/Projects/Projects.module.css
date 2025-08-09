@@ -1,0 +1,25 @@
+.projects {
+  padding: 80px 40px;
+  text-align: center;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 70px;
+}
+
+.gridItem {
+  display: flex;
+}
+
+.fullWidthCard {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: auto;
+  }
+}

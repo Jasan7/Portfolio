@@ -1,19 +1,17 @@
-/* Hero Section takes full screen height */
 .hero {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full screen */
+  height: 100vh;
   text-align: center;
 }
 
 .intro {
+  margin-top: 10%;
   max-width: 700px;
 }
 
 .greeting {
   font-size: 2.8rem;
-  margin-bottom: 10px;
 }
 
 .greeting span {
@@ -28,7 +26,6 @@
   font-weight: 700;
 }
 
-/* About Section */
 .moreAbout {
   padding: 60px 20px;
   max-width: 800px;
@@ -47,4 +44,13 @@
   font-size: 1rem;
   color: #ccc;
   line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    margin-top: 35%;
+  }
+  .greeting {
+    font-size: 2.3rem;
+  }
 }

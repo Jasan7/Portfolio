@@ -1,24 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
-import Footer from "./components/Footer/Footer";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 
 function App() {
-  return (
-    <Router>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
-      </main>
-      <Footer />
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
