@@ -7,50 +7,58 @@
 }
 
 .content {
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 30px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .heading {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #7ee1ff; 
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #00bfff;
 }
 
 .intro {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.description {
+  font-size: 1.4rem;
 }
 
 .highlight {
   font-weight: bold;
-  color: #ff9800;
+  color: #7ee1ff;
 }
 
 .techHighlight {
   font-weight: bold;
-  color: #00ffcc; 
+  color: #7ee1ff;
+  font-style: italic;
 }
 
 .section h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 12px;
   color: #00bfff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(107, 238, 255, 0.6);
   padding-bottom: 4px;
+}
+
+.section p {
+  font-size: 1.4rem;
+}
+
+.university {
+  display: block;
+  margin-top: 4px;
 }
 
 .section {
   margin: 0;
-  color: #ccc;
+  color: #ffffff;
 }
 
 .techGrid {

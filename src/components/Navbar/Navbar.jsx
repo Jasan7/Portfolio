@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import NavButton from "../sharedComponent/NavButton/NavButton";
 import styles from "./Navbar.module.css";
-import { FaHome, FaProjectDiagram, FaUser, FaFileAlt, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaHome,
+  FaProjectDiagram,
+  FaUser,
+  FaFileAlt,
+  FaBars,
+  FaTimes,
+  FaGithub,
+} from "react-icons/fa";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,6 +49,16 @@ function Navbar() {
               <FaFileAlt className={styles.icon} /> Resume
             </NavButton>
           </li>
+          <li>
+            <a
+              href="https://github.com/Jasan7/Portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubBtn}
+            >
+              <FaGithub className={styles.giticon} /> GitHub
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -50,8 +68,7 @@ function Navbar() {
 
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          <NavButton to="/" onClick={() => {setMenuOpen(false) 
-            console.log("pressed")}}>
+          <NavButton to="/" onClick={() => setMenuOpen(false)}>
             <FaHome className={styles.icon} /> Home
           </NavButton>
           <NavButton to="/projects" onClick={() => setMenuOpen(false)}>
@@ -63,6 +80,14 @@ function Navbar() {
           <NavButton to="/resume" onClick={() => setMenuOpen(false)}>
             <FaFileAlt className={styles.icon} /> Resume
           </NavButton>
+          <a
+            href="https://github.com/Jasan7/Portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubBtnMobile}
+          >
+            <FaGithub /> GitHub
+          </a>
         </div>
       )}
     </header>

@@ -67,22 +67,26 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <section className={styles.projects}>
-      <div className={styles.grid}>
-        {projectData.map((project, index) => (
-          <div
-            key={index}
-            className={
-              index === projectData.length - 1
-                ? styles.fullWidthCard
-                : styles.gridItem
-            }
-          >
-            <ProjectCard {...project} />
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      <h2 className={styles.heading}>My Projects</h2>
+
+      <section className={styles.projects}>
+        <div className={styles.grid}>
+          {projectData.map((project, index) => (
+            <div
+              key={index}
+              className={
+                index === projectData.length - 1
+                  ? styles.fullWidthCard
+                  : styles.gridItem
+              }
+            >
+              <ProjectCard {...project} />
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 
