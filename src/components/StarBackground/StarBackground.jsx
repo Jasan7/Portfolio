@@ -7,29 +7,34 @@ const StarBackground = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
+    const isMobile = window.innerWidth <= 768;
     let stars = [];
-    const numStars = 250;
+    const numStars = isMobile ? 120 : 250; 
     const colors = ["#ffffff", "#ffe9c4", "#d4fbff"];
 
     let canvasWidth = window.innerWidth;
-    let canvasHeight = window.innerHeight;
-
+    let canvasHeight = window.innerHeight * 1.5; 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvasWidth,
-        y: Math.random() * canvasHeight,
-        radius: Math.random() * 1.5,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        speed: Math.random() * 0.05 + 0.02,
-      });
-    }
+    const generateStars = () => {
+      stars = [];
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvasWidth,
+          y: Math.random() * canvasHeight,
+          radius: Math.random() * 1.5,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speed: Math.random() * 0.05 + 0.02,
+        });
+      }
+    };
+
+    generateStars();
 
     const resize = () => {
       const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight;
+      const newHeight = window.innerHeight * 1.5;
 
       const scaleX = newWidth / canvasWidth;
       const scaleY = newHeight / canvasHeight;
@@ -52,7 +57,7 @@ const StarBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#0a0b1dff";
+      ctx.fillStyle = "#0a0b1dff"; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
@@ -85,6 +90,9 @@ const StarBackground = () => {
         position: "fixed",
         top: 0,
         left: 0,
+        width: "100%",
+        height: "150vh", 
+        backgroundColor: "#0a0b1d",
         zIndex: -1,
       }}
     />
