@@ -21,6 +21,7 @@ import {
   SiJquery,
   SiHtml5,
   SiCss3,
+  SiExpress
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import styles from "./Skills.module.css";
@@ -44,6 +45,7 @@ const skillCategories = [
       { name: "JSP", icon: <FaJava /> },
       { name: "Bootstrap", icon: <SiBootstrap /> },
       { name: "AngularJS", icon: <SiAngular /> },
+      { name: "ExpressJS", icon: <SiExpress /> },
       { name: "ReactJS", icon: <FaReact /> },
       { name: "NodeJS", icon: <FaNodeJs /> },
       { name: "React Native", icon: <FaReact /> },
