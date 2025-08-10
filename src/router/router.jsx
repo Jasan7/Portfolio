@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Home from "./../components/Home/Home";
 import About from "./../components/About/About";
 import Projects from "./../components/Projects/Projects";
@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "projects", element: <Projects /> },
       { path: "resume", element: <Resume /> },
+      { path: "*", element: <Navigate to="/" replace /> }, 
     ],
   },
 ]);
