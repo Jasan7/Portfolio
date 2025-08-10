@@ -9,6 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 const Resume = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageWidth, setPageWidth] = useState(800);
+  const [pdfError, setPdfError] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -25,22 +26,39 @@ const Resume = () => {
   return (
     <section className={styles.resumeSection}>
       <div className={styles.resumeViewer} ref={containerRef}>
-        <Document
-          file={pdf}
-          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-          className={styles.document}
-        >
-          <Page
-            pageNumber={1}
-            width={pageWidth}
-            renderAnnotationLayer={false}
-            renderTextLayer={false}
-            className={styles.pdfPage}
-          />
-        </Document>
+        {!pdfError && (
+          <Document
+            file={`${window.location.origin}${pdf}`}
+            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            onLoadError={(err) => {
+              console.error("PDF failed to load:", err);
+              setPdfError(true);
+            }}
+            className={styles.document}
+          >
+            <Page
+              pageNumber={1}
+              width={pageWidth}
+              renderAnnotationLayer={false}
+              renderTextLayer={false}
+              className={styles.pdfPage}
+            />
+          </Document>
+        )}
+        {pdfError && (
+          <p style={{ color: "#ff7675", textAlign: "center" }}>
+            PDF preview not supported on this device. Please download it below.
+          </p>
+        )}
       </div>
 
-      <a href={pdf} download className={styles.downloadBtn}>
+      <a
+        href={`${window.location.origin}${pdf}`}
+        download
+        className={styles.downloadBtn}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FaDownload /> Download Resume
       </a>
     </section>
