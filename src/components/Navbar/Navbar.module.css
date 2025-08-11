@@ -200,4 +200,7 @@
   .logoWrapper {
     margin-left: 5px;
   }
+  .header{
+    padding: 0px 13px;
+  }
 }

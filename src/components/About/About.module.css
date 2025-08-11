@@ -47,7 +47,7 @@
 
 .university {
   display: block;
-  margin-top: 4px;
+  margin-top: 7px;
 }
 
 .section {
@@ -76,4 +76,25 @@
   border-color: #00bfff;
   transform: translateY(-2px);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.6rem;
+    margin-top: 0px;
+  }
+  .intro {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  .description {
+    font-size: 1.4rem;
+  }
+  .section h3 {
+    font-size: 1.6rem;
+  }
+  .about {
+    padding: 30px 20px;
+  }
 }

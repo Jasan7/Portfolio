@@ -69,4 +69,7 @@
     transform: none;
     box-shadow: none;
   }
+  .card h2{
+    font-size: 1.3rem;
+  }
 }

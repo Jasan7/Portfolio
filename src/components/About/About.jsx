@@ -25,7 +25,7 @@ const About = () => {
         <div className={styles.section}>
           <h3>🎓 Education</h3>
           <p>
-            <strong>B.Tech in Computer Science Engineering</strong>
+            <strong>B.Tech in Computer Science Engineering.</strong>
             <span className={styles.university}>
               Guru Gobind Singh Indraprastha University (2018 - 2022) CGPA: 8.2
             </span>

@@ -37,3 +37,9 @@
     transform: translateY(-2px);
   }
 }
+
+@media (max-width: 768px) {
+  .downloadBtn {
+    font-size: 1rem;
+  }
+}

@@ -21,7 +21,6 @@ const Home = () => {
             <h1 className={styles.greeting}>
               Hey! <span className={styles.wave}>👋 </span>
               <span className={styles.introText}>
-                {" "}
                 I'm <span className={styles.name}> Jasandeep Singh</span>
               </span>
             </h1>

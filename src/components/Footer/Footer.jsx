@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <p>© {new Date().getFullYear()} - JS</p>
+      <p className={styles.footerText}>© {new Date().getFullYear()} - JS</p>
 
       <div className={styles.socialLinks}>
         <a

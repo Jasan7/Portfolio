@@ -1,0 +1,15 @@
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: #0a0b1d; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

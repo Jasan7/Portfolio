@@ -32,4 +32,8 @@
   .projects {
     padding: 30px 10px;
   }
+  .heading {
+    font-size: 1.6rem;
+    margin-top: 40px;
+  }
 }
