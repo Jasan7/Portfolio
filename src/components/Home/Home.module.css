@@ -55,10 +55,6 @@
   margin-bottom: 20px;
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #00bfff, #228dff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .aboutPoints p {

@@ -4,12 +4,12 @@ import Skills from "./Skills/Skills";
 const About = () => {
   return (
     <section className={styles.about}>
-      <h2 className={styles.heading}>More about Me</h2>
+      <h2 className={styles.heading}>Let me introduce <span className="special">Myself</span> </h2>
 
       <div className={styles.content}>
         <p className={styles.intro}>
           Hi Everyone, I am{" "}
-          <span className={styles.highlight}>Jasandeep Singh</span>.
+          <span className="special">Jasandeep Singh</span>.
         </p>
         <p className={styles.description}>
           I am a frontend developer with 3 years of hands-on experience in

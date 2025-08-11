@@ -20,7 +20,10 @@ const Home = () => {
           <div className={styles.intro}>
             <h1 className={styles.greeting}>
               Hey! <span className={styles.wave}>👋 </span>
-              <span className={styles.introText}> I'm <span className={styles.name}> Jasandeep Singh</span></span>
+              <span className={styles.introText}>
+                {" "}
+                I'm <span className={styles.name}> Jasandeep Singh</span>
+              </span>
             </h1>
             <ReactTyped
               strings={[
@@ -55,7 +58,7 @@ const Home = () => {
       >
         {/* More About Me */}
         <div className={styles.moreAbout}>
-          <h2 className={styles.subHeading}>More About Me</h2>
+          <h2 className={styles.subHeading}>More About <span className="special">Me</span></h2>
           <div className={styles.aboutPoints}>
             {[
               "I specialize in building scalable, responsive, and dynamic web applications.",
@@ -82,7 +85,9 @@ const Home = () => {
 
         {/* Contact Links */}
         <div className={styles.contactSection}>
-          <h2 className={styles.subHeading}>Find Me Online</h2>
+          <h2 className={styles.subHeading}>
+            Find Me <span className="special">Online</span>
+          </h2>
           <div className={styles.contactLinks}>
             <a
               href="https://github.com/Jasan7"

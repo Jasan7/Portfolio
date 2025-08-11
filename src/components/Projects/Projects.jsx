@@ -68,7 +68,9 @@ const projectData = [
 const Projects = () => {
   return (
     <>
-      <h2 className={styles.heading}>My Projects</h2>
+      <h2 className={styles.heading}>
+        My <span className="special">Projects</span>{" "}
+      </h2>
 
       <section className={styles.projects}>
         <div className={styles.grid}>

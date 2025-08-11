@@ -16,7 +16,6 @@
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 20px;
-  color: #00bfff;
 }
 
 .intro {
@@ -28,11 +27,6 @@
   font-size: 1.4rem;
 }
 
-.highlight {
-  font-weight: bold;
-  color: #7ee1ff;
-}
-
 .techHighlight {
   font-weight: bold;
   color: #7ee1ff;
@@ -42,7 +36,7 @@
 .section h3 {
   font-size: 1.8rem;
   margin-bottom: 12px;
-  color: #00bfff;
+  color: #7ee1ff;
   border-bottom: 1px solid rgba(107, 238, 255, 0.6);
   padding-bottom: 4px;
 }
