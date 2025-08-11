@@ -83,10 +83,28 @@
 
 .hamburger {
   display: none;
-  font-size: 1.5rem;
-  color: #fff;
+  position: relative;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
+
+.hamburgerIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.8rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+  pointer-events: none;
+}
+
 
 .mobileMenu {
   position: absolute;
@@ -165,6 +183,8 @@
   color: #fff;
   border-radius: 6px;
   font-weight: 600;
+   -webkit-tap-highlight-color: transparent;
+  outline: none;
   text-decoration: none;
   transition: background 0.3s ease;
 }

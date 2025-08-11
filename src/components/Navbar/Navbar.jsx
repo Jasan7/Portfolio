@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavButton from "../sharedComponent/NavButton/NavButton";
 import styles from "./Navbar.module.css";
 import {
@@ -16,6 +16,9 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoOffset, setLogoOffset] = useState({ x: 0, y: 0 });
 
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
@@ -25,16 +28,41 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleClickOutside = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    // Delay adding listener to avoid instantly closing when opening
+    const timer = setTimeout(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+    }, 0);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
     if (window.innerWidth <= 768) return;
 
     const handleMouseMove = (e) => {
       const centerX = window.innerWidth / 3;
       const centerY = window.innerHeight / 3;
 
-      let moveX = (e.clientX - centerX) / centerX; 
-      let moveY = (e.clientY - centerY) / centerY; 
+      let moveX = (e.clientX - centerX) / centerX;
+      let moveY = (e.clientY - centerY) / centerY;
 
-      const sensitivity = 2; 
+      const sensitivity = 2;
 
       moveX = Math.max(0, moveX * sensitivity);
       moveY = Math.max(0, moveY * sensitivity);
@@ -42,7 +70,7 @@ function Navbar() {
       moveX = Math.min(moveX, 1);
       moveY = Math.min(moveY, 1);
 
-      const maxTranslate = 10; 
+      const maxTranslate = 10;
       setLogoOffset({
         x: moveX * maxTranslate,
         y: moveY * maxTranslate,
@@ -124,12 +152,23 @@ function Navbar() {
         </ul>
       </nav>
 
-      <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <FaTimes /> : <FaBars />}
+      <div
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        ref={hamburgerRef}
+      >
+        <FaBars
+          className={`${styles.hamburgerIcon} ${menuOpen ? styles.hidden : ""}`}
+        />
+        <FaTimes
+          className={`${styles.hamburgerIcon} ${
+            !menuOpen ? styles.hidden : ""
+          }`}
+        />
       </div>
 
       {menuOpen && (
-        <div className={styles.mobileMenu}>
+        <div className={styles.mobileMenu} ref={menuRef}>
           <NavButton to="/" onClick={() => setMenuOpen(false)}>
             <FaHome className={styles.icon} /> Home
           </NavButton>

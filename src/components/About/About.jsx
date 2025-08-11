@@ -4,12 +4,13 @@ import Skills from "./Skills/Skills";
 const About = () => {
   return (
     <section className={styles.about}>
-      <h2 className={styles.heading}>Let me introduce <span className="special">Myself</span> </h2>
+      <h2 className={styles.heading}>
+        Let me introduce <span className="special">Myself</span>{" "}
+      </h2>
 
       <div className={styles.content}>
         <p className={styles.intro}>
-          Hi Everyone, I am{" "}
-          <span className="special">Jasandeep Singh</span>.
+          Hi Everyone, I am <span className="special">Jasandeep Singh</span>.
         </p>
         <p className={styles.description}>
           I am a frontend developer with 3 years of hands-on experience in
@@ -24,7 +25,7 @@ const About = () => {
 
         <div className={styles.section}>
           <h3>🎓 Education</h3>
-          <p>
+          <p className={styles.education}>
             <strong>B.Tech in Computer Science Engineering.</strong>
             <span className={styles.university}>
               Guru Gobind Singh Indraprastha University (2018 - 2022) CGPA: 8.2
@@ -32,8 +33,13 @@ const About = () => {
           </p>
         </div>
 
-        {/* Tech Stack */}
-        <Skills />
+        <div className={styles.section}>
+          <p className={styles.helperText}>
+            Click on each icon to see my experience with each tool / programming
+            language.
+          </p>
+          <Skills />
+        </div>
       </div>
     </section>
   );

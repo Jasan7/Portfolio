@@ -41,7 +41,7 @@
   padding-bottom: 4px;
 }
 
-.section p {
+.education {
   font-size: 1.4rem;
 }
 
@@ -78,6 +78,15 @@
   cursor: pointer;
 }
 
+.helperText {
+  font-size: 1rem;
+  color: #a0a0a0;
+  font-style: italic;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .heading {
     font-size: 1.6rem;
@@ -96,5 +105,8 @@
   }
   .about {
     padding: 30px 20px;
+  }
+  .helperText {
+    font-size: 0.9rem;
   }
 }

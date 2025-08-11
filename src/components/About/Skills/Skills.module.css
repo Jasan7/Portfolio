@@ -1,7 +1,8 @@
 .skillSection {
   text-align: center;
-  padding: 40px 20px;
   color: #fff;
+   -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .category {
@@ -43,6 +44,7 @@
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(107, 238, 255, 0.6);
+  cursor: pointer;
 }
 
 .icon {
@@ -53,17 +55,44 @@
 
 @media (max-width: 600px) {
   .card {
-    width: calc(50% - 15px);
-    height: 120px;
+    width: calc(50% - 10px);
+    height: 110px;
+    padding: 12px;
   }
+
   .skillName {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    margin-top: 4px;
   }
+
   .icon {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
+
   .card:hover {
     transform: none;
     box-shadow: none;
+  }
+
+  .modalContent {
+    width: 90%;
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .modalIcon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .navButtons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navBtn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 10px;
   }
 }
