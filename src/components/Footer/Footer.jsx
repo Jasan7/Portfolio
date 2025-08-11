@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -22,6 +22,14 @@ const Footer = () => {
           className={styles.icon}
         >
           <FaLinkedin />
+        </a>
+        <a
+          href="mailto:sjasandeep7@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.icon}
+        >
+          <FaEnvelope />
         </a>
       </div>
     </footer>

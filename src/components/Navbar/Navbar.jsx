@@ -14,6 +14,7 @@ import {
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoOffset, setLogoOffset] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,9 +24,70 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth <= 768) return;
+
+    const handleMouseMove = (e) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      let moveX = (e.clientX - centerX) / centerX; 
+      let moveY = (e.clientY - centerY) / centerY; 
+
+      const sensitivity = 2; 
+
+      moveX = Math.max(0, moveX * sensitivity);
+      moveY = Math.max(0, moveY * sensitivity);
+
+      moveX = Math.min(moveX, 1);
+      moveY = Math.min(moveY, 1);
+
+      const maxTranslate = 10; 
+      setLogoOffset({
+        x: moveX * maxTranslate,
+        y: moveY * maxTranslate,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      setLogoOffset({ x: 0, y: 0 });
+    };
+  }, []);
+
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>js</div>
+      <div className={styles.logoWrapper}>
+        <div
+          className={styles.logoBottom}
+          style={{
+            transform: `translate(${logoOffset.x * 0.3}px, ${
+              logoOffset.y * 0.3
+            }px)`,
+            transition: "transform 0.1s ease-out",
+            willChange: "transform",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        >
+          jasan();
+        </div>
+
+        <div
+          className={styles.logoTop}
+          style={{
+            transform: `translate(${logoOffset.x}px, ${logoOffset.y}px)`,
+            transition: "transform 0.1s ease-out",
+            willChange: "transform",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        >
+          jasan();
+        </div>
+      </div>
 
       <nav className={styles.desktopNav}>
         <ul className={styles.navlinks}>

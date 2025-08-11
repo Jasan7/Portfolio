@@ -1,5 +1,5 @@
 import { ReactTyped } from "react-typed";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styles from "./Home.module.css";
@@ -87,6 +87,14 @@ const Home = () => {
               className={styles.contactIcon}
             >
               <FaLinkedin />
+            </a>
+            <a
+              href="mailto:sjasandeep7@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.contactIcon}
+            >
+              <FaEnvelope />
             </a>
           </div>
         </div>
