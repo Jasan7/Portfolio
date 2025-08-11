@@ -2,23 +2,26 @@ import { useEffect, useRef } from "react";
 
 const StarBackground = () => {
   const canvasRef = useRef(null);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    const isMobile = window.innerWidth <= 768;
-    let stars = [];
-    const numStars = isMobile ? 120 : 250; 
+    let isMobile = window.innerWidth <= 768;
+    let numStars = isMobile ? 120 : 250;
     const colors = ["#ffffff", "#ffe9c4", "#d4fbff"];
-
+    let stars = [];
     let canvasWidth = window.innerWidth;
-    let canvasHeight = window.innerHeight * 1.5; 
+    let canvasHeight = window.innerHeight * 1.5;
+
+    // Setup canvas
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
+    // Generate stars once
     const generateStars = () => {
-      stars = [];
+      stars.length = 0;
       for (let i = 0; i < numStars; i++) {
         stars.push({
           x: Math.random() * canvasWidth,
@@ -29,38 +32,41 @@ const StarBackground = () => {
         });
       }
     };
-
     generateStars();
 
-    const resize = () => {
-      const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight * 1.5;
-
-      const scaleX = newWidth / canvasWidth;
-      const scaleY = newHeight / canvasHeight;
-
-      stars = stars.map((star) => ({
-        ...star,
-        x: star.x * scaleX,
-        y: star.y * scaleY,
-      }));
-
-      canvasWidth = newWidth;
-      canvasHeight = newHeight;
-
-      canvas.width = canvasWidth;
-      canvas.height = canvasHeight;
+    // Throttled resize handler
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        isMobile = window.innerWidth <= 768;
+        numStars = isMobile ? 120 : 250;
+        canvasWidth = window.innerWidth;
+        canvasHeight = window.innerHeight * 1.5;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        generateStars(); // regenerate for new screen size
+      }, 150);
     };
+    window.addEventListener("resize", handleResize);
 
-    window.addEventListener("resize", resize);
+    // Pause animation when tab is hidden
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationRef.current);
+      } else {
+        animate();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
+    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#0a0b1dff"; 
+      ctx.fillStyle = "#0a0b1dff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      stars.forEach((star) => {
+      for (let star of stars) {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = star.color;
@@ -71,15 +77,16 @@ const StarBackground = () => {
           star.y = 0;
           star.x = Math.random() * canvas.width;
         }
-      });
+      }
 
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     };
-
     animate();
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
@@ -91,7 +98,7 @@ const StarBackground = () => {
         top: 0,
         left: 0,
         width: "100%",
-        height: "150vh", 
+        height: "150vh",
         backgroundColor: "#0a0b1d",
         zIndex: -1,
       }}

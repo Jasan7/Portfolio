@@ -28,8 +28,8 @@ function Navbar() {
     if (window.innerWidth <= 768) return;
 
     const handleMouseMove = (e) => {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
+      const centerX = window.innerWidth / 3;
+      const centerY = window.innerHeight / 3;
 
       let moveX = (e.clientX - centerX) / centerX; 
       let moveY = (e.clientY - centerY) / centerY; 

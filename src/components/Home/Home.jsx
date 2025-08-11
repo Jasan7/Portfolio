@@ -2,6 +2,8 @@ import { ReactTyped } from "react-typed";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Lottie from "lottie-react";
+import laptopAnimation from "./../../assets/computer.json";
 import styles from "./Home.module.css";
 
 const Home = () => {
@@ -14,24 +16,34 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.intro}>
-          <h1 className={styles.greeting}>
-            Hi, I'm <span>Jasandeep Singh</span>{" "}
-            <span className={styles.wave}>👋</span>
-          </h1>
+        <div className={styles.heroContent}>
+          <div className={styles.intro}>
+            <h1 className={styles.greeting}>
+              Hey! <span className={styles.wave}>👋 </span>
+              <span className={styles.introText}> I'm <span className={styles.name}> Jasandeep Singh</span></span>
+            </h1>
+            <ReactTyped
+              strings={[
+                "Software Engineer",
+                "React JS Developer",
+                "MERN Stack Developer",
+              ]}
+              typeSpeed={70}
+              backSpeed={50}
+              backDelay={1500}
+              loop
+              className={styles.typedText}
+            />
+          </div>
 
-          <ReactTyped
-            strings={[
-              "Software Engineer",
-              "React JS Developer",
-              "MERN Stack Developer",
-            ]}
-            typeSpeed={70}
-            backSpeed={50}
-            backDelay={1500}
-            loop
-            className={styles.typedText}
-          />
+          <div className={styles.heroAnimation}>
+            <Lottie
+              animationData={laptopAnimation}
+              style={{ width: 500 }}
+              loop={false}
+              autoplay={false}
+            />
+          </div>
         </div>
       </section>
       <motion.section
