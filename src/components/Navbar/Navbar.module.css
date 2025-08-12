@@ -5,12 +5,10 @@
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-
   background: transparent;
   transition: background 0.3s ease, box-shadow 0.3s ease,
     backdrop-filter 0.3s ease;
@@ -105,7 +103,6 @@
   pointer-events: none;
 }
 
-
 .mobileMenu {
   position: absolute;
   top: 60px;
@@ -183,10 +180,9 @@
   color: #fff;
   border-radius: 6px;
   font-weight: 600;
-   -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
   outline: none;
   text-decoration: none;
-  transition: background 0.3s ease;
 }
 
 @keyframes slideDown {
@@ -220,7 +216,7 @@
   .logoWrapper {
     margin-left: 5px;
   }
-  .header{
+  .header {
     padding: 0px 13px;
   }
 }

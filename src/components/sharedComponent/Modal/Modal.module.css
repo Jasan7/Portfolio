@@ -70,6 +70,20 @@
   text-align: center;
 }
 
+
+@keyframes fadeOutAnim {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOutAnim 0.3s ease forwards;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

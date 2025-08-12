@@ -43,7 +43,7 @@ const skillCategories = [
         name: "Java",
         icon: <FaJava />,
         description:
-          "Learned and applied in academic and training projects; familiar with OOP, backend services, and enterprise-level application development.",
+          "Learned and applied in academic and training projects. Familiar with OOP, backend services, and enterprise-level application development.",
       },
       {
         name: "C++",
@@ -221,7 +221,7 @@ const skillCategories = [
 ];
 
 export default function Skillset() {
-  const allSkills = skillCategories.flatMap((cat) => cat.skills); // Flatten into single list
+  const allSkills = skillCategories.flatMap((cat) => cat.skills);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openSkill = (index) => setSelectedIndex(index);
@@ -249,11 +249,14 @@ export default function Skillset() {
               return (
                 <div
                   key={i}
-                  className={styles.card}
+                  className={`${styles.card} ${styles.tooltipWrapper}`}
                   onClick={() => openSkill(globalIndex)}
                 >
                   <div className={styles.icon}>{skill.icon}</div>
                   <span className={styles.skillName}>{skill.name}</span>
+                  <span className={styles.tooltipText}>
+                    Click to see my experience
+                  </span>
                 </div>
               );
             })}
